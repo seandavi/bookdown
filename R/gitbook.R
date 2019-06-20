@@ -27,7 +27,7 @@ gitbook = function(
 ) {
   html_document2 = function(..., extra_dependencies = list()) {
     rmarkdown::html_document(
-      ..., self_contained=TRUE, extra_dependencies = c(extra_dependencies, gitbook_dependency(table_css))
+      ..., extra_dependencies = c(extra_dependencies, gitbook_dependency(table_css))
     )
   }
   gb_config = config
@@ -36,7 +36,7 @@ gitbook = function(
   }
   config = html_document2(
     toc = TRUE, number_sections = number_sections, fig_caption = fig_caption,
-    self_contained = self_contained, lib_dir = lib_dir, theme = NULL,
+    self_contained = TRUE, lib_dir = lib_dir, theme = NULL,
     template = template, pandoc_args = pandoc_args2(pandoc_args), ...
   )
   split_by = match.arg(split_by)
