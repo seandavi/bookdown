@@ -20,14 +20,14 @@
 #' the \code{css} option. Default is \code{TRUE}.
 #' @export
 gitbook = function(
-  fig_caption = TRUE, number_sections = TRUE, self_contained = FALSE,
+  fig_caption = TRUE, number_sections = TRUE, self_contained = TRUE,
   lib_dir = 'libs', pandoc_args = NULL, ..., template = 'default',
   split_by = c('chapter', 'chapter+number', 'section', 'section+number', 'rmd', 'none'),
   split_bib = TRUE, config = list(), table_css = TRUE
 ) {
   html_document2 = function(..., extra_dependencies = list()) {
     rmarkdown::html_document(
-      ..., extra_dependencies = c(extra_dependencies, gitbook_dependency(table_css))
+      ..., self_contained=TRUE, extra_dependencies = c(extra_dependencies, gitbook_dependency(table_css))
     )
   }
   gb_config = config
